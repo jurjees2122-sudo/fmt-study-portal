@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FMT Study Portal — Forensic Medicine & Toxicology HAQs</title>
+  <meta name="description" content="Comprehensive FMT HAQ question bank with detailed answers for MBBS examinations. Based on Reddy's Textbook of Forensic Medicine & Toxicology." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <div class="logo-icon">⚖️</div>
+        <div class="logo-text">
+          <span class="logo-title">FMT Portal</span>
+          <span class="logo-sub">HAQs 3rd Edition</span>
+        </div>
+      </div>
+      <button class="sidebar-close" id="sidebarClose">✕</button>
+    </div>
+    <div class="sidebar-stats">
+      <div class="stat-pill all-pill">Total: <span id="totalCount">0</span></div>
+      <div class="stat-pill laq">LAQ <span id="laqCount">0</span></div>
+      <div class="stat-pill saq">SAQ <span id="saqCount">0</span></div>
+      <div class="stat-pill vsaq">VSAQ <span id="vsaqCount">0</span></div>
+    </div>
+    <div class="sidebar-search">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search questions..." />
+      </div>
+    </div>
+    <div class="type-filter">
+      <button class="type-btn active" data-type="ALL">All</button>
+      <button class="type-btn" data-type="LAQ">LAQ</button>
+      <button class="type-btn" data-type="SAQ">SAQ</button>
+      <button class="type-btn" data-type="VSAQ">VSAQ</button>
+    </div>
+    <nav class="chapter-nav" id="chapterNav">
+      <p class="nav-label">CHAPTERS</p>
+    </nav>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- MAIN -->
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="topbar-center">
+        <h1 class="topbar-title">Forensic Medicine & Toxicology</h1>
+        <p class="topbar-sub" id="currentChapterLabel">All Chapters</p>
+      </div>
+      <div class="topbar-right">
+        <span class="edition-badge">Reddy's</span>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero-banner" id="heroBanner">
+      <div class="hero-left">
+        <div class="hero-eyebrow">MBBS Final Year</div>
+        <h2 class="hero-title">FMT HAQ <span class="hero-accent">Question Bank</span></h2>
+        <p class="hero-desc">275 questions with complete answers based on <strong>Reddy's Textbook of Forensic Medicine & Toxicology</strong>. LAQ · SAQ · VSAQ covered.</p>
+        <div class="hero-tags">
+          <span class="tag">⚖️ Legal Medicine</span>
+          <span class="tag">☠️ Toxicology</span>
+          <span class="tag">🔍 Forensic Science</span>
+          <span class="tag">🧬 Identity & Autopsy</span>
+          <span class="tag">🧪 Poisoning</span>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stat-card"><div class="hsc-num">271</div><div class="hsc-label">Total Questions</div></div>
+        <div class="hero-stat-card laq-card"><div class="hsc-num">18</div><div class="hsc-label">LAQs</div></div>
+        <div class="hero-stat-card saq-card"><div class="hsc-num">86</div><div class="hsc-label">SAQs</div></div>
+        <div class="hero-stat-card vsaq-card"><div class="hsc-num">167</div><div class="hsc-label">VSAQs</div></div>
+        <div class="hero-stat-card"><div class="hsc-num">29</div><div class="hsc-label">Chapters</div></div>
+      </div>
+    </div>
+
+    <div class="results-bar" id="resultsBar" style="display:none">
+      <span id="resultsCount"></span>
+      <button class="clear-filter-btn" id="clearFilter">Clear Filter ✕</button>
+    </div>
+
+    <div class="question-grid" id="questionGrid"></div>
+
+    <div class="no-results hidden" id="noResults">
+      <div class="no-icon">🔎</div>
+      <h3>No questions found</h3>
+      <p>Try a different search or chapter</p>
+    </div>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <div class="modal-badges">
+          <span class="mbadge type-badge" id="modalType"></span>
+          <span class="mbadge chapter-badge" id="modalChapter"></span>
+          <span class="mbadge stars-badge" id="modalStars"></span>
+        </div>
+        <button class="modal-close" id="modalClose">✕</button>
+      </div>
+      <h2 class="modal-question" id="modalQuestion"></h2>
+      <div class="modal-divider"></div>
+      <div class="modal-answer" id="modalAnswer"></div>
+      <div class="modal-footer">
+        <button class="nav-btn" id="prevBtn">← Prev</button>
+        <span class="modal-counter" id="modalQnum"></span>
+        <button class="nav-btn" id="nextBtn">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="questions_db.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
